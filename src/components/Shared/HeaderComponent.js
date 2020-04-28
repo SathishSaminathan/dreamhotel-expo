@@ -1,16 +1,12 @@
 import React from 'react';
 import {
-  Text,
   View,
-  TouchableNativeFeedback,
-  TouchableOpacity,
   StatusBar,
 } from 'react-native';
 import {Colors} from '../../constants/ThemeConstants';
 import TextComponent from '../../components/Shared/TextComponent';
 import IconComponent from '../../components/Shared/IconComponent';
 import {FontType, IconType} from '../../constants/AppConstants';
-import {heightPerc} from '../../helpers/styleHelper';
 import Ripple from 'react-native-material-ripple';
 
 const HeaderComponent = ({

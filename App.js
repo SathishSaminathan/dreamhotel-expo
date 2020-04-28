@@ -8,6 +8,10 @@ import VideoComponent from "./src/components/Shared/VideoComponent";
 import GetStarted from "./src/screens/GetStarted";
 import RestaurantRecommendation from "./src/screens/Home/RestaurantRecommendation";
 
+import { MyStack } from "./src/routes/StackNavigator";
+import { NavigationContainer } from "@react-navigation/native";
+import { TabNavigator } from "./src/routes/TabNavigator";
+
 export default function App() {
   let [fontsLoaded] = useFonts({
     "Proxima Nova Regular": require("./src/assets/fonts/Proxima-Nova-Regular.otf"),
@@ -20,9 +24,9 @@ export default function App() {
     return <AppLoading />;
   } else {
     return (
-      <View style={styles.container}>
-        <RestaurantRecommendation />
-      </View>
+      <NavigationContainer>
+        <MyStack />
+      </NavigationContainer>
     );
   }
 }
