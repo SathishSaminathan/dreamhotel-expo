@@ -44,7 +44,7 @@ export default class GetStarted extends Component {
           </View>
           <View style={{flex: 3}}>
             <View style={{width: '100%'}}>
-              {/* <ButtonComponent
+              <ButtonComponent
                 onPress={() => this.props.navigation.navigate('Login')}
                 style={{
                   backgroundColor: Colors.darkGrey,
@@ -55,7 +55,7 @@ export default class GetStarted extends Component {
                 }}
                 borderRadius={40}>
                 Get Started
-              </ButtonComponent> */}
+              </ButtonComponent>
             </View>
           </View>
           <View style={{flex: 3}}>

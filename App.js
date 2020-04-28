@@ -6,6 +6,7 @@ import TextComponent from "./src/components/Shared/TextComponent";
 import { AppLoading } from "expo";
 import VideoComponent from "./src/components/Shared/VideoComponent";
 import GetStarted from "./src/screens/GetStarted";
+import RestaurantRecommendation from "./src/screens/Home/RestaurantRecommendation";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -20,7 +21,7 @@ export default function App() {
   } else {
     return (
       <View style={styles.container}>
-        <GetStarted/>
+        <RestaurantRecommendation />
       </View>
     );
   }
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    // alignItems: "center",
+    // justifyContent: "center",
   },
 });

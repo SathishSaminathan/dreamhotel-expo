@@ -19,6 +19,7 @@ const VideoComponent = props => {
         rate={1.0}
         ignoreSilentSwitch={'obey'}
         {...props}
+        shouldPlay
       />
     </>
   );
