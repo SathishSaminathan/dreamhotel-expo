@@ -1,28 +1,50 @@
 {
   "expo": {
     "name": "dreamhotel-expo",
+    "description": "This project is really great.",
     "slug": "dreamhotel-expo",
+    "privacy": "public",
+    "sdkVersion": "37.0.0",
     "platforms": [
       "ios",
-      "android",
-      "web"
+      "android"
     ],
-    "version": "1.0.0",
+    "version": "0.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
+      "image": "./assets/icon.png",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
+    "notification": {
+      "icon": "./public/images/icon.png",
+      "color": "#00FF00"
+    },
+    "android": {
+      "package": "com.re.hq",
+      "versionCode": 1
+    },
+    "ios": {
+      "bundleIdentifier": "com.re.hq",
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Require camera permission to take photo of driver(or item)",
+        "NSContactsUsageDescription": "message",
+        "NSLocationWhenInUseUsageDescription": "message",
+        "NSMicrophoneUsageDescription": "Require microphone permission to send audio message",
+        "NSMotionUsageDescription": "message",
+        "NSPhotoLibraryAddUsageDescription": "Require photo permission to change your profile or item edition",
+        "NSPhotoLibraryUsageDescription": "Require photo permission to change your profile or item edition"
+      }
+    },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "enabled": true,
+      "checkAutomatically": "ON_LOAD",
+      "fallbackToCacheTimeout": 30000
     },
     "assetBundlePatterns": [
       "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    }
+    ]
   }
 }
