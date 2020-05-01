@@ -55,7 +55,7 @@ export default class Home extends Component {
             />
           </View>
           <View style={{position: 'absolute', right: '5%'}}>
-            <TouchableNativeFeedback
+            <TouchableOpacity
               onPress={() => this.props.navigation.navigate('Drawer')}
               style={{padding: 10}}>
               <IconComponent
@@ -63,7 +63,7 @@ export default class Home extends Component {
                 name="ios-menu"
                 style={{fontSize: 30}}
               />
-            </TouchableNativeFeedback>
+            </TouchableOpacity>
           </View>
         </View>
         <ImageBackground source={Images.group15} style={styles.image}>
