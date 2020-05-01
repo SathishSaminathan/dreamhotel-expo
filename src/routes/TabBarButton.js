@@ -70,14 +70,14 @@ const TabBarButton = ({state, descriptors, navigation}) => {
                   }}
                 />
               )}
-              <TouchableNativeFeedback
+              {/* <TouchableNativeFeedback
                 // background={TouchableNativeFeedback.Ripple('red')}
                 // containerStyle={{
                 //   backgroundColor: Colors.red,
                 // }}
                 delayPressIn={0}
-                onPress={onPress}>
-                <View
+                onPress={onPress}> */}
+                <TouchableOpacity
                   style={[
                     {
                       flex: 1,
@@ -109,8 +109,8 @@ const TabBarButton = ({state, descriptors, navigation}) => {
                     }}>
                     {label}
                   </TextComponent>
-                </View>
-              </TouchableNativeFeedback>
+                </TouchableOpacity>
+              {/* </TouchableNativeFeedback> */}
             </View>
           );
         }
