@@ -106,6 +106,7 @@ export default class Account extends Component {
             //     list.route && this.props.navigation.navigate(list.route)
             //   }>
             <TouchableOpacity
+              activeOpacity={0.8}
               key={i}
               onPress={() =>
                 list.route && this.props.navigation.navigate(list.route)
