@@ -163,53 +163,52 @@ class ListItem extends Component {
       //   key={i}
       //   onPress={() => list.route && this.props.navigation.navigate(list.route)}
       // >
-        <TouchableOpacity
-          activeOpacity={0.8}
-          onPress={() =>
-            list.route && this.props.navigation.navigate(list.route)
-          }
+      <TouchableOpacity
+        key={i}
+        activeOpacity={0.8}
+        onPress={() => list.route && this.props.navigation.navigate(list.route)}
+        style={{
+          paddingVertical: 16,
+          flexDirection: "row",
+          justifyContent: "space-around",
+          alignItems: "center",
+          flex: 1,
+          width: widthPerc(80),
+          alignSelf: "center",
+          backgroundColor: Colors.white,
+        }}
+      >
+        <View
           style={{
-            paddingVertical: 16,
             flexDirection: "row",
-            justifyContent: "space-around",
             alignItems: "center",
             flex: 1,
-            width: widthPerc(80),
-            alignSelf: "center",
-            backgroundColor: Colors.white,
           }}
         >
-          <View
+          <IconComponent
+            type={IconType.MaterialCommunityIcons}
+            name={list.icon}
             style={{
-              flexDirection: "row",
-              alignItems: "center",
+              paddingRight: 15,
+              fontSize: 23,
               flex: 1,
+              textAlign: "center",
             }}
-          >
+          />
+          <TextComponent style={{ fontSize: 18, flex: 8 }}>
+            {list.name}
+          </TextComponent>
+        </View>
+        {isAccount && (
+          <View>
             <IconComponent
-              type={IconType.MaterialCommunityIcons}
-              name={list.icon}
-              style={{
-                paddingRight: 15,
-                fontSize: 23,
-                flex: 1,
-                textAlign: "center",
-              }}
+              type={IconType.AntDesign}
+              name="right"
+              style={{ fontSize: 18 }}
             />
-            <TextComponent style={{ fontSize: 18, flex: 8 }}>
-              {list.name}
-            </TextComponent>
           </View>
-          {isAccount && (
-            <View>
-              <IconComponent
-                type={IconType.AntDesign}
-                name="right"
-                style={{ fontSize: 18 }}
-              />
-            </View>
-          )}
-        </TouchableOpacity>
+        )}
+      </TouchableOpacity>
       // </TouchableNativeFeedback>
     ));
   };
