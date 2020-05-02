@@ -78,7 +78,7 @@ export default class Status extends Component {
               style={{
                 flexDirection: 'row',
                 width: '100%',
-                height: 40,
+                // height: 40,
                 borderWidth: 1,
                 borderColor: Colors.themeBlack,
                 borderRadius: 50,

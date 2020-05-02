@@ -93,7 +93,7 @@ const Security = (props) => (
           fontSize: 13,
           backgroundColor: Colors.themeBlack,
           color: Colors.white,
-          height: 40,
+          // height: 40,
         }}>
         Confirm
       </ButtonComponent>

@@ -114,7 +114,7 @@ export default class Offers extends Component {
                   <View
                     style={{
                       width: 40,
-                      height: 40,
+                      // height: 40,
                       backgroundColor: Colors.themeBlack,
                       borderRadius: 20,
                       alignItems: 'center',

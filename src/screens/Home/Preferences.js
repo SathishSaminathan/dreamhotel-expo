@@ -337,7 +337,7 @@ class Preferences extends Component {
                 fontSize: 13,
                 backgroundColor: Colors.themeBlack,
                 color: Colors.white,
-                height: 40,
+                // height: 40,
               }}>
               Apply
             </ButtonComponent>

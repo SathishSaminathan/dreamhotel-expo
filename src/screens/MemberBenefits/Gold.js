@@ -78,7 +78,7 @@ const Gold = ({params}) => (
               width: '32%',
               borderWidth: 1,
               borderColor: Colors.yellow,
-              height: 40,
+              // height: 40,
               borderRadius: 5,
               marginBottom: 5,
               alignItems: 'flex-start',

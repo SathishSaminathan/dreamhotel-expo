@@ -166,7 +166,7 @@ export default class Account extends Component {
             backgroundColor: Colors.themeBlack,
             width: "30%",
             fontSize: 13,
-            height: 40,
+            // height: 40,
             color: Colors.white,
             elevation: 0,
             alignSelf: "center",

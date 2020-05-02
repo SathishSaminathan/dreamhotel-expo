@@ -80,7 +80,7 @@ const Diamond = ({params}) => (
               width: '32%',
               borderWidth: 1,
               borderColor: Colors.diamond,
-              height: 40,
+              // height: 40,
               borderRadius: 5,
               marginBottom: 5,
               alignItems: 'flex-start',
