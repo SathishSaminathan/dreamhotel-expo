@@ -151,7 +151,7 @@ class Feedback extends Component {
                               ? Colors.themeBlack
                               : Colors.white,
                             fontSize: 13,
-                            height: 40,
+                            // height: 40,
                             paddingHorizontal: 13,
                             // marginRight: 10,
                             marginBottom: 5,
