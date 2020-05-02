@@ -62,6 +62,7 @@ const Diamond = ({params}) => (
           backgroundColor: Colors.themeBlack,
           color: Colors.white,
           fontFamily: 'Proxima Nova Bold',
+          height: 50
         }}
         borderRadius={5}>
         Benefits
