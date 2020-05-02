@@ -6,7 +6,8 @@ import {
   TouchableNativeFeedback,
   ScrollView,
 } from 'react-native';
-import CheckBox from '@react-native-community/checkbox';
+// import CheckBox from '@react-native-community/checkbox';
+import CheckBox from "react-native-check-box";
 import ModalDropdown from 'react-native-modal-dropdown';
 import {Colors} from '../../constants/ThemeConstants';
 import HeaderComponent from '../../components/Shared/HeaderComponent';
