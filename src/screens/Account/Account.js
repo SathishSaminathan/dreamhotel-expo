@@ -152,10 +152,11 @@ export default class Account extends Component {
   render() {
     return (
       <ScrollView
-        style={{
+        contentContainerStyle={{
           paddingHorizontal: 15,
           paddingTop: 10,
           backgroundColor: Colors.white,
+          paddingBottom: 60,
         }}
       >
         {this.renderList()}

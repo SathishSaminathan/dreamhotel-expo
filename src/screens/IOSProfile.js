@@ -14,6 +14,7 @@ import TextComponent from "../components/Shared/TextComponent";
 import Status from "./Account/Status";
 import Account from "./Account/Account";
 import { widthPerc } from "../helpers/styleHelper";
+import { FontType } from "../constants/AppConstants";
 
 const initialLayout = { width: Dimensions.get("window").width };
 
@@ -23,30 +24,37 @@ class IOSProfile extends Component {
     this.state = {
       position: new Animated.Value(0),
       width: 0,
-      activeTab: "STATUS",
+      activeTab: "Status",
     };
   }
 
   measureView(event) {
-    console.log("width: ", event.nativeEvent.layout.width);
     this.setState({
       width: event.nativeEvent.layout.width,
     });
   }
 
+  handleTab = (value) => {
+    Animated.spring(this.state.position, {
+      toValue: value,
+      duration: 300,
+      friction: 10,
+    }).start();
+  };
+
   render() {
     const { position, width, activeTab } = this.state;
     const trans = position.interpolate({
-      inputRange: [0, 360],
+      inputRange: [0, width],
       outputRange: [0, width / 2],
       extrapolate: "clamp",
     });
+    const viewTrans = position.interpolate({
+      inputRange: [0, width],
+      outputRange: [0, -widthPerc(100)],
+      extrapolate: "clamp",
+    });
 
-    // const trans = position.interpolate({
-    //   inputRange: [0, 360],
-    //   outputRange: [0, width / 2],
-    //   extrapolate: "clamp",
-    // });
     return (
       <View style={{ flex: 1 }}>
         <StatusBar />
@@ -75,8 +83,9 @@ class IOSProfile extends Component {
               <TouchableOpacity
                 activeOpacity={1}
                 onPress={() => {
-                  this.scrollViewRef.scrollTo({ x: 0 });
-                  this.setState({ activeTab: "STATUS" });
+                  // this.scrollViewRef.scrollTo({ x: 0 });
+                  this.handleTab(0);
+                  this.setState({ activeTab: "Status" });
                 }}
                 style={{
                   width: "50%",
@@ -87,9 +96,11 @@ class IOSProfile extends Component {
                 }}
               >
                 <TextComponent
+                  type={FontType.BOLD}
                   style={{
+                    fontSize: 16,
                     color:
-                      activeTab === "STATUS" ? Colors.white : Colors.themeBlack,
+                      activeTab === "Status" ? Colors.white : Colors.themeBlack,
                   }}
                 >
                   Status
@@ -98,8 +109,9 @@ class IOSProfile extends Component {
               <TouchableOpacity
                 activeOpacity={1}
                 onPress={() => {
-                  this.scrollViewRef.scrollTo({ x: 360 });
-                  this.setState({ activeTab: "ACCOUNT" });
+                  // this.scrollViewRef.scrollTo({ x: 360 });
+                  this.handleTab(width);
+                  this.setState({ activeTab: "Account" });
                 }}
                 style={{
                   width: "50%",
@@ -110,9 +122,11 @@ class IOSProfile extends Component {
                 }}
               >
                 <TextComponent
+                  type={FontType.BOLD}
                   style={{
+                    fontSize: 16,
                     color:
-                      activeTab === "ACCOUNT"
+                      activeTab === "Account"
                         ? Colors.white
                         : Colors.themeBlack,
                   }}
@@ -130,28 +144,40 @@ class IOSProfile extends Component {
                   left: trans,
                   zIndex: -1,
                 }}
-              ></Animated.View>
+              >
+                {/* <TextComponent style={{ color: Colors.white }}>
+                  {text}
+                </TextComponent> */}
+              </Animated.View>
             </View>
           </View>
         </View>
-        <ScrollView
-          horizontal
-          pagingEnabled
-          style={{ flex: 1 }}
-          ref={(ref) => {
-            this.scrollViewRef = ref;
+        <Animated.View
+          style={{
+            flexDirection: "row",
+            // transform: [
+            //   {
+            //     translateX: viewTrans,
+            //   },
+            // ],
           }}
-          onScroll={Animated.event([
-            { nativeEvent: { contentOffset: { x: this.state.position } } },
-          ])}
+          // ref={(ref) => {
+          //   this.scrollViewRef = ref;
+          // }}
+          // onScroll={Animated.event([
+          //   { nativeEvent: { contentOffset: { x: this.state.position } } },
+          // ])}
         >
-          <View key="1" style={{ width: widthPerc(100) }}>
-            <Status />
-          </View>
-          <View key="2" style={{ width: widthPerc(100) }}>
-            <Account />
-          </View>
-        </ScrollView>
+          {activeTab === "Status" ? (
+            <View style={{ width: widthPerc(100), flex: 1 }}>
+              <Status />
+            </View>
+          ) : (
+            <View style={{ width: widthPerc(100) }}>
+              <Account />
+            </View>
+          )}
+        </Animated.View>
       </View>
     );
   }
