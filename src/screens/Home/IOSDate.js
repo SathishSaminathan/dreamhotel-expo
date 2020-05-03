@@ -121,7 +121,9 @@ class IOSDate extends React.Component {
             paddingHorizontal: 10,
           }}
         >
-          <IconComponent size={15} type={IconType.AntDesign} name="left" />
+          <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+            <IconComponent size={15} type={IconType.AntDesign} name="left" />
+          </TouchableOpacity>
           <TextComponent type={FontType.BOLD} style={{ fontSize: 17 }}>
             Dates
           </TextComponent>
