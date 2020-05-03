@@ -6,6 +6,7 @@ import {
   ScrollView,
   TouchableNativeFeedback,
   TouchableOpacity,
+  Platform,
 } from "react-native";
 
 import { Colors } from "../../constants/ThemeConstants";
@@ -18,7 +19,13 @@ import Divider from "../../components/Shared/Divider";
 
 const IOSLocation = (props) => {
   return (
-    <View style={{ flex: 1, backgroundColor: Colors.white }}>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: Colors.white,
+        paddingTop: Platform.OS === "ios" ? 20 : 0,
+      }}
+    >
       <View style={{ flexDirection: "row" }}>
         <View
           style={{
@@ -61,7 +68,10 @@ const IOSLocation = (props) => {
               alignItems: "center",
             }}
           >
-            <TouchableOpacity activeOpacity={0.8} onPress={()=> props.navigation.goBack()}>
+            <TouchableOpacity
+              activeOpacity={0.8}
+              onPress={() => props.navigation.goBack()}
+            >
               <TextComponent
                 type={FontType.BOLD}
                 style={{ fontSize: 17, color: Colors.cancelblue }}

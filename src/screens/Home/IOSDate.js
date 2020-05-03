@@ -5,6 +5,7 @@ import {
   Dimensions,
   TouchableOpacity,
   TouchableNativeFeedback,
+  Platform,
 } from "react-native";
 import { Calendar } from "react-native-calendario";
 import { Colors } from "../../constants/ThemeConstants";
@@ -119,6 +120,7 @@ class IOSDate extends React.Component {
             alignItems: "center",
             justifyContent: "space-between",
             paddingHorizontal: 10,
+            paddingTop: Platform.OS === "ios" ? 20 : 0,
           }}
         >
           <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
