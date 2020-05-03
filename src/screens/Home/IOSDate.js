@@ -12,7 +12,7 @@ import TextComponent from "../../components/Shared/TextComponent";
 import ButtonComponent from "../../components/Shared/ButtonComponent";
 import SearchLocation from "./SearchLocation";
 import IconComponent from "../../components/Shared/IconComponent";
-import { IconType } from "../../constants/AppConstants";
+import { IconType, FontType } from "../../constants/AppConstants";
 import moment from "moment";
 import { without } from "lodash";
 
@@ -116,158 +116,105 @@ class IOSDate extends React.Component {
             height: 60,
             flexDirection: "row",
             backgroundColor: Colors.white,
+            alignItems: "center",
+            justifyContent: "space-between",
+            paddingHorizontal: 10,
           }}
         >
+          <IconComponent size={15} type={IconType.AntDesign} name="left" />
+          <TextComponent type={FontType.BOLD} style={{ fontSize: 17 }}>
+            Dates
+          </TextComponent>
           <TouchableOpacity
-            activeOpacity={1}
-            onPress={() => this.setState({ ActiveTab: "Location" })}
-            style={{
-              flex: 5,
-              alignItems: "center",
-              justifyContent: "center",
-              borderBottomWidth: ActiveTab === "Location" ? 1.5 : 0,
-              borderBottomColor: Colors.themeBlack,
-              flexDirection: "row",
-            }}
+            activeOpacity={0.8}
+            onPress={() =>
+              this.props.navigation.navigate("LocationResults", {
+                date: ShowDates,
+              })
+            }
           >
-            {/* <TouchableNativeFeedback
-              onPress={() => this.props.navigation.goBack()}
-            > */}
-            <TouchableOpacity
-              onPress={() => this.props.navigation.goBack()}
-              activeOpacity={0.8}
-              style={{
-                flex: 2,
-                alignItems: "center",
-                height: "100%",
-                justifyContent: "center",
-              }}
+            <TextComponent
+              type={FontType.BOLD}
+              style={{ fontSize: 17, color: Colors.cancelblue }}
             >
-              <IconComponent
-                type={IconType.AntDesign}
-                name="left"
-                style={{ fontSize: 15, color: Colors.themeBlack }}
-              />
-            </TouchableOpacity>
-            {/* </TouchableNativeFeedback> */}
-            <View style={{ alignItems: "center", flex: 8 }}>
-              <TextComponent
-                style={{
-                  fontFamily: "Proxima Nova Bold",
-                  fontSize: 15,
-                  color: Colors.tabText,
-                  // paddingVertical: 10,
-                }}
-              >
-                Location
-              </TextComponent>
-              {LocationName && <TextComponent>{LocationName}</TextComponent>}
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity
-            activeOpacity={1}
-            onPress={() => this.setState({ ActiveTab: "Date" })}
-            style={{
-              flex: 5,
-              alignItems: "center",
-              justifyContent: "center",
-              borderBottomWidth: ActiveTab === "Date" ? 1.5 : 0,
-              borderBottomColor: Colors.themeBlack,
-            }}
-          >
-            <View style={{ alignItems: "center" }}>
-              <TextComponent
-                style={{
-                  fontFamily: "Proxima Nova Bold",
-                  fontSize: 15,
-                  color: Colors.tabText,
-                  // paddingVertical: 10,
-                }}
-              >
-                Date
-              </TextComponent>
-              {ShowDates && <TextComponent>{ShowDates}</TextComponent>}
-            </View>
+              Done
+            </TextComponent>
           </TouchableOpacity>
         </View>
-        {/* <View style={{flex: 1}}> */}
-        {ActiveTab === "Location" ? (
-          <SearchLocation setLocationName={this.setLocationName} />
-        ) : (
-          <View style={{ flex: 1, backgroundColor: Colors.white }}>
-            <View
-              style={{
-                flexDirection: "row",
-                width: "100%",
-                height: 31,
-                alignItems: "center",
-                alignSelf: "center",
-                backgroundColor: Colors.accDividerColor,
-              }}
-            >
-              {["S", "M", "T", "W", "T", "F", "S"].map((v, i) => (
-                <View key={i} style={{ flex: 1, alignItems: "center" }}>
-                  <TextComponent style={{ fontSize: 15 }}>{v}</TextComponent>
-                </View>
-              ))}
-            </View>
-            <Calendar
-              // monthHeight={350}
-              showWeekdays={false}
-              onChange={this.onChange}
-              minDate={moment()}
-              startDate={this.state.startDate}
-              endDate={this.state.endDate}
-              theme={{
-                activeDayColor: {},
-                monthTitleTextStyle: {
-                  color: Colors.themeBlack,
-                  fontWeight: "300",
-                  fontSize: 16,
-                },
-                emptyMonthContainerStyle: {},
-                emptyMonthTextStyle: {
-                  fontWeight: "200",
-                },
-                weekColumnsContainerStyle: {
-                  // backgroundColor:'red'
-                },
-                weekColumnStyle: {
-                  paddingVertical: 10,
-                },
-                weekColumnTextStyle: {
-                  color: "#b6c1cd",
-                  fontSize: 13,
-                },
-                nonTouchableDayContainerStyle: {},
-                nonTouchableDayTextStyle: {},
-                startDateContainerStyle: {},
-                endDateContainerStyle: {},
-                dayContainerStyle: {},
-                dayTextStyle: {
-                  color: "#2d4150",
-                  fontWeight: "200",
-                  fontSize: 15,
-                },
-                dayOutOfRangeContainerStyle: {},
-                dayOutOfRangeTextStyle: {},
-                todayContainerStyle: {},
-                todayTextStyle: {
-                  color: "#6d95da",
-                },
-                activeDayContainerStyle: {
-                  backgroundColor: Colors.themeBlack,
-                },
-                activeDayTextStyle: {
-                  color: "white",
-                },
-                nonTouchableLastMonthDayTextStyle: {},
-              }}
-            />
+
+        <View style={{ flex: 1, backgroundColor: Colors.white }}>
+          <View
+            style={{
+              flexDirection: "row",
+              width: "100%",
+              height: 31,
+              alignItems: "center",
+              alignSelf: "center",
+              backgroundColor: Colors.accDividerColor,
+            }}
+          >
+            {["S", "M", "T", "W", "T", "F", "S"].map((v, i) => (
+              <View key={i} style={{ flex: 1, alignItems: "center" }}>
+                <TextComponent style={{ fontSize: 15 }}>{v}</TextComponent>
+              </View>
+            ))}
           </View>
-        )}
+          <Calendar
+            // monthHeight={350}
+            showWeekdays={false}
+            onChange={this.onChange}
+            minDate={moment()}
+            startDate={this.state.startDate}
+            endDate={this.state.endDate}
+            theme={{
+              activeDayColor: {},
+              monthTitleTextStyle: {
+                color: Colors.themeBlack,
+                fontWeight: "300",
+                fontSize: 16,
+              },
+              emptyMonthContainerStyle: {},
+              emptyMonthTextStyle: {
+                fontWeight: "200",
+              },
+              weekColumnsContainerStyle: {
+                // backgroundColor:'red'
+              },
+              weekColumnStyle: {
+                paddingVertical: 10,
+              },
+              weekColumnTextStyle: {
+                color: "#b6c1cd",
+                fontSize: 13,
+              },
+              nonTouchableDayContainerStyle: {},
+              nonTouchableDayTextStyle: {},
+              startDateContainerStyle: {},
+              endDateContainerStyle: {},
+              dayContainerStyle: {},
+              dayTextStyle: {
+                color: "#2d4150",
+                fontWeight: "200",
+                fontSize: 15,
+              },
+              dayOutOfRangeContainerStyle: {},
+              dayOutOfRangeTextStyle: {},
+              todayContainerStyle: {},
+              todayTextStyle: {
+                color: "#6d95da",
+              },
+              activeDayContainerStyle: {
+                backgroundColor: Colors.themeBlack,
+              },
+              activeDayTextStyle: {
+                color: "white",
+              },
+              nonTouchableLastMonthDayTextStyle: {},
+            }}
+          />
+        </View>
         {/* </View> */}
-        <ButtonComponent
+        {/* <ButtonComponent
           onPress={() =>
             this.props.navigation.navigate("LocationResults", {
               date: ShowDates,
@@ -280,14 +227,14 @@ class IOSDate extends React.Component {
           }}
           borderRadius={0}
         >
-          {ActiveTab === "Date"
+          {true
             ? `BOOK FOR ${
                 DaysCount
                   ? `${DaysCount} NIGHT${DaysCount === 1 ? `` : `S`}`
                   : `TONIGHT`
               }`
             : "Apply"}
-        </ButtonComponent>
+        </ButtonComponent> */}
       </View>
     );
   }

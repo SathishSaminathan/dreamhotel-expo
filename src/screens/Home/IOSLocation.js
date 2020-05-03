@@ -98,7 +98,7 @@ const IOSLocation = (props) => {
             key={i}
             onPress={() => {
               // v == 'Nashville, TN' && props.changeRoute(1);
-              v == "Nashville, TN" && props.setLocationName(v);
+              v == "Nashville, TN" && props.navigation.navigate("IOSDate");
             }}
           >
             <View
