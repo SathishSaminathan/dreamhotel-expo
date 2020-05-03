@@ -32,7 +32,7 @@ export default class Home extends Component {
       <View style={styles.container}>
         <View
           style={{
-            height: Platform.OS === "ios" ? 20 : StatusBar.currentHeight,
+            height: Platform.OS === "ios" ? 20 : 0,
           }}
         >
           <StatusBar
