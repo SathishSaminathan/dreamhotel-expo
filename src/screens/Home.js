@@ -30,12 +30,18 @@ export default class Home extends Component {
     const routeName = Platform.OS === "ios" ? "IOSLocation" : "Location";
     return (
       <View style={styles.container}>
-        <StatusBar
-          backgroundColor={Colors.white}
-          barStyle={"dark-content"}
-          hidden={false}
-          translucent={false}
-        />
+        <View
+          style={{
+            height: Platform.OS === "ios" ? 20 : StatusBar.currentHeight,
+          }}
+        >
+          <StatusBar
+            backgroundColor={Colors.white}
+            barStyle={"dark-content"}
+            hidden={false}
+            translucent={false}
+          />
+        </View>
         <View
           style={{
             height: 80,
