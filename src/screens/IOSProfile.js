@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   ScrollView,
   Animated,
+  Platform,
 } from "react-native";
 
 import { Colors } from "../constants/ThemeConstants";
@@ -14,7 +15,8 @@ import TextComponent from "../components/Shared/TextComponent";
 import Status from "./Account/Status";
 import Account from "./Account/Account";
 import { widthPerc } from "../helpers/styleHelper";
-import { FontType } from "../constants/AppConstants";
+import { FontType, IconType } from "../constants/AppConstants";
+import IconComponent from "../components/Shared/IconComponent";
 
 const initialLayout = { width: Dimensions.get("window").width };
 
@@ -56,8 +58,7 @@ class IOSProfile extends Component {
     });
 
     return (
-      <View style={{ flex: 1 }}>
-        <StatusBar />
+      <View style={{ flex: 1, paddingTop: Platform.OS === "ios" ? 20 : 0 }}>
         {/* <HeaderComponent title="Profile" {...pageProps} hasBack/> */}
         <View
           style={{
@@ -66,10 +67,20 @@ class IOSProfile extends Component {
             backgroundColor: Colors.white,
             alignItems: "center",
             justifyContent: "center",
+            flexDirection: "row",
+            justifyContent: "center",
           }}
         >
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => this.props.navigation.goBack()}
+            style={{ flex: 1, alignItems: "center" }}
+          >
+            <IconComponent size={20} type={IconType.AntDesign} name="left" />
+          </TouchableOpacity>
           <View
             style={{
+              flex: 9,
               height: 40,
               backgroundColor: "rgba(118,118,128,0.12)",
               width: widthPerc(80),
@@ -169,7 +180,7 @@ class IOSProfile extends Component {
           // ])}
         >
           {activeTab === "Status" ? (
-            <View style={{ width: widthPerc(100), flex: 1 }}>
+            <View style={{ width: widthPerc(100) }}>
               <Status />
             </View>
           ) : (

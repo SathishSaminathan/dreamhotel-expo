@@ -26,8 +26,8 @@ export default function App() {
   } else {
     return (
       <NavigationContainer>
-        {/* <MyStack /> */}
-        <IOSProfile />
+        <MyStack />
+        {/* <IOSProfile /> */}
       </NavigationContainer>
     );
   }
