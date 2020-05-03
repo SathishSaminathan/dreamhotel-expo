@@ -61,7 +61,7 @@ const IOSLocation = (props) => {
               alignItems: "center",
             }}
           >
-            <TouchableOpacity>
+            <TouchableOpacity activeOpacity={0.8} onPress={()=> props.navigation.goBack()}>
               <TextComponent
                 type={FontType.BOLD}
                 style={{ fontSize: 17, color: Colors.cancelblue }}
