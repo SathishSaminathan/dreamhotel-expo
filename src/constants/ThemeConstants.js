@@ -38,4 +38,5 @@ export const Colors = {
   active: '#4cb5ff',
   serious: '#9059ff',
   critical: '#178AFF',
+  cancelblue:"#0180E3"
 };

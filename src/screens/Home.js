@@ -6,6 +6,7 @@ import {
   StatusBar,
   ImageBackground,
   TouchableOpacity,
+  Platform,
 } from "react-native";
 
 import TextComponent from "../components/Shared/TextComponent";
@@ -26,6 +27,7 @@ export default class Home extends Component {
     });
   }
   render() {
+    const routeName = Platform.OS === "ios" ? "IOSLocation" : "Location";
     return (
       <View style={styles.container}>
         <StatusBar
@@ -115,7 +117,7 @@ export default class Home extends Component {
             </View>
             <TouchableOpacity
               activeOpacity={1}
-              onPress={() => this.props.navigation.navigate("Location")}
+              onPress={() => this.props.navigation.navigate(routeName)}
             >
               <View
                 style={{
