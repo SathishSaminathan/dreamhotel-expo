@@ -54,7 +54,7 @@ class Preferences extends Component {
   }
 
   handleCheck = (name, checked) => {
-    console.log(name, checked);
+    // console.log(name, checked);
     data = data.map((data) => {
       if (name === data.name) {
         return {
