@@ -24,6 +24,7 @@ import NearByEvents from "./NearByEvents";
 import HeaderComponent from "../../components/Shared/HeaderComponent";
 import RoomPreferences from "./RoomPreferences";
 import Ripple from "react-native-material-ripple";
+import IOSLocationResults from "./IOSLocationResults";
 
 const initialLayout = { width: Dimensions.get("window").width };
 
@@ -107,16 +108,20 @@ const LocationResults = (props) => {
 
   return (
     <View style={{ flex: 1, paddingTop: Platform.OS === "ios" ? 20 : 0 }}>
-      {/* {index === 0 && ( */}
-      <HeaderComponent title="Search Results" hasBack {...props} />
-      {/* )} */}
-      <TabView
-        navigationState={{ index, routes }}
-        renderTabBar={renderHeader}
-        renderScene={renderScene}
-        onIndexChange={setIndex}
-        initialLayout={initialLayout}
-      />
+      {Platform.OS === "android" ? (
+        <IOSLocationResults {...props} />
+      ) : (
+        <View style={{ flex: 1 }}>
+          <HeaderComponent title="Search Results" hasBack {...props} />
+          <TabView
+            navigationState={{ index, routes }}
+            renderTabBar={renderHeader}
+            renderScene={renderScene}
+            onIndexChange={setIndex}
+            initialLayout={initialLayout}
+          />
+        </View>
+      )}
       <FAB
         buttonColor={Colors.themeBlack}
         iconTextColor="#FFFFFF"

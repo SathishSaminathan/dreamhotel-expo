@@ -133,7 +133,7 @@ export default class Home extends Component {
               <View
                 style={{
                   backgroundColor: Colors.white,
-                  borderRadius: Platform.OS === "android" ? 10 : 50,
+                  borderRadius: Platform.OS === "ios" ? 10 : 50,
                   paddingVertical: 15,
                   paddingHorizontal: 20,
                   flexDirection: "row",
