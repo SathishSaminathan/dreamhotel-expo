@@ -65,7 +65,7 @@ const MemberBenefits = (props) => {
   return (
     <View style={{ flex: 1 }}>
       <HeaderComponent title="Member Benefits" hasBack {...props} />
-      {Platform.OS === "android" ? (
+      {Platform.OS === "ios" ? (
         <IOSMemberBenifits />
       ) : (
         <TabView
