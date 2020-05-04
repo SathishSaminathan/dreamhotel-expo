@@ -108,7 +108,7 @@ const LocationResults = (props) => {
 
   return (
     <View style={{ flex: 1, paddingTop: Platform.OS === "ios" ? 20 : 0 }}>
-      {Platform.OS === "android" ? (
+      {Platform.OS === "ios" ? (
         <IOSLocationResults {...props} />
       ) : (
         <View style={{ flex: 1 }}>
