@@ -64,7 +64,12 @@ export default class Home extends Component {
               resizeMode="contain"
             />
           </View>
-          <View style={{ position: "absolute", right: "5%" }}>
+          <View
+            style={[
+              { position: "absolute" },
+              Platform.OS === "ios" ? { left: "5%" } : { right: "5%" },
+            ]}
+          >
             <TouchableOpacity
               activeOpacity={0.8}
               onPress={() => this.props.navigation.navigate("Drawer")}
@@ -128,7 +133,7 @@ export default class Home extends Component {
               <View
                 style={{
                   backgroundColor: Colors.white,
-                  borderRadius: 50,
+                  borderRadius: Platform.OS === "android" ? 10 : 50,
                   paddingVertical: 15,
                   paddingHorizontal: 20,
                   flexDirection: "row",
