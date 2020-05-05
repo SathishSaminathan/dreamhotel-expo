@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   ScrollView,
   ImageBackground,
+  Platform,
 } from "react-native";
 
 import TextComponent from "../../components/Shared/TextComponent";
@@ -265,7 +266,12 @@ export default class Home extends Component {
               />
             </TouchableOpacity>
           </View>
-          <View style={{ position: "absolute", right: "5%" }}>
+          <View
+            style={[
+              { position: "absolute" },
+              Platform.OS === "ios" ? { left: "5%" } : { right: "5%" },
+            ]}
+          >
             <TouchableOpacity
               onPress={() => this.props.navigation.navigate("Home")}
               style={{ padding: 10 }}
@@ -315,6 +321,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     backgroundColor: Colors.white,
+    paddingTop: Platform.OS === "ios" ? 20 : 0,
   },
   image: {
     flex: 1,
