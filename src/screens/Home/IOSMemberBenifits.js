@@ -59,11 +59,11 @@ class IOSMemberBenifits extends React.Component {
   renderScene = (Scene) => {
     switch (Scene) {
       case "Silver":
-        return <Silver />;
+        return <Silver {...this.props} />;
       case "Gold":
-        return <Gold />;
+        return <Gold {...this.props} />;
       case "Diamond":
-        return <Diamond />;
+        return <Diamond {...this.props} />;
 
       default:
         break;

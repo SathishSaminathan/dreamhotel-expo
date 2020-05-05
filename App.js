@@ -11,7 +11,6 @@ import RestaurantRecommendation from "./src/screens/Home/RestaurantRecommendatio
 import { MyStack } from "./src/routes/StackNavigator";
 import { NavigationContainer } from "@react-navigation/native";
 import { TabNavigator } from "./src/routes/TabNavigator";
-import IOSProfile from "./src/screens/IOSProfile";
 
 export default function App() {
   let [fontsLoaded] = useFonts({

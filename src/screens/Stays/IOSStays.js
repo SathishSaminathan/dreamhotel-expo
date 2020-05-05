@@ -51,11 +51,11 @@ class IOSStays extends React.Component {
   renderScene = (Scene) => {
     switch (Scene) {
       case "Upcoming":
-        return <Upcoming />;
+        return <Upcoming  {...this.props}/>;
       case "Past":
-        return <Past />;
+        return <Past  {...this.props}/>;
       case "Cancelled":
-        return <Cancelled />;
+        return <Cancelled  {...this.props}/>;
 
       default:
         break;

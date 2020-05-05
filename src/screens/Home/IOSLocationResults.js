@@ -48,9 +48,9 @@ class IOSLocationResults extends React.Component {
   renderScene = (Scene) => {
     switch (Scene) {
       case "Nashville Rooms":
-        return <LocationResultList />;
+        return <LocationResultList hideFilter {...this.props} />;
       case "Nearby Events":
-        return <NearByEvents />;
+        return <NearByEvents {...this.props} />;
       default:
         break;
     }
@@ -159,6 +159,69 @@ class IOSLocationResults extends React.Component {
             </View>
           </View>
         </View>
+        {activeTab !== "Nearby Events" && (
+          <View
+            style={{
+              flexDirection: "row",
+              backgroundColor: Colors.white,
+              paddingHorizontal: 20,
+              paddingBottom: 5,
+            }}
+          >
+            <TouchableOpacity
+              activeOpacity={1}
+              onPress={() => this.props.navigation.push("IOSDate")}
+              style={{
+                height: 40,
+                borderWidth: 0.5,
+                flex: 1,
+                borderRadius: 5,
+                alignItems: "center",
+                justifyContent: "center",
+                borderColor: Colors.accordionBorderColor,
+              }}
+            >
+              <TextComponent style={{ fontSize: 10 }}>
+                May 22 - May 27
+              </TextComponent>
+            </TouchableOpacity>
+            <TouchableOpacity
+              activeOpacity={1}
+              onPress={() => this.props.navigation.push("IOSRoomFilter")}
+              style={{
+                height: 40,
+                borderWidth: 0.5,
+                flex: 1.4,
+                borderRadius: 5,
+                marginHorizontal: 5,
+                alignItems: "center",
+                justifyContent: "center",
+                borderColor: Colors.accordionBorderColor,
+              }}
+            >
+              <TextComponent style={{ fontSize: 10 }}>
+                Room 1, Adults 1, Children 1
+              </TextComponent>
+            </TouchableOpacity>
+            <TouchableOpacity
+              activeOpacity={1}
+              onPress={() => this.props.navigation.push("IOSLocation")}
+              style={{
+                height: 40,
+                borderWidth: 0.5,
+                flex: 1,
+                borderRadius: 5,
+                alignItems: "center",
+                justifyContent: "center",
+                borderColor: Colors.accordionBorderColor,
+              }}
+            >
+              <TextComponent style={{ fontSize: 10 }}>
+                Nashville, TN
+              </TextComponent>
+            </TouchableOpacity>
+          </View>
+        )}
         {this.renderScene(activeTab)}
       </View>
     );

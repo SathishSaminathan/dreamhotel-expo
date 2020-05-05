@@ -204,7 +204,7 @@ export default class HotelDetails extends Component {
                   <View
                     style={{
                       width: 40,
-                      // height: 40,
+                      height: 40,
                       borderRadius: 20,
                       backgroundColor: Colors.themeBlack,
                       alignItems: 'center',
