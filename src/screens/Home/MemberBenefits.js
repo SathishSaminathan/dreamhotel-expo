@@ -63,7 +63,13 @@ const MemberBenefits = (props) => {
   );
 
   return (
-    <View style={{ flex: 1, paddingTop: Platform.OS === "ios" ? 20 : 0 }}>
+    <View
+      style={{
+        flex: 1,
+        paddingTop: Platform.OS === "ios" ? 20 : 0,
+        backgroundColor: Colors.white,
+      }}
+    >
       <HeaderComponent title="Member Benefits" hasBack {...props} />
       {Platform.OS === "ios" ? (
         <IOSMemberBenifits />
