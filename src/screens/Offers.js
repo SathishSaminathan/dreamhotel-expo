@@ -94,7 +94,13 @@ export default class Offers extends Component {
   render() {
     const { data } = this.state;
     return (
-      <View style={{ flex: 1, backgroundColor: Colors.white }}>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: Colors.white,
+          paddingTop: Platform.OS === "ios" ? 20 : 0,
+        }}
+      >
         <HeaderComponent hasBack title="Offers" {...this.props} />
         <ScrollView
           contentContainerStyle={{
