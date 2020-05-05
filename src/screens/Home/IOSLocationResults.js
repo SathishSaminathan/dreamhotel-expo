@@ -65,7 +65,7 @@ class IOSLocationResults extends React.Component {
     });
 
     return (
-      <View style={{ flex: 1, paddingTop: Platform.OS === "ios" ? 20 : 0 }}>
+      <View style={{ flex: 1 }}>
         <View
           style={{
             height: 60,
