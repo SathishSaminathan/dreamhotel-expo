@@ -58,7 +58,13 @@ class IOSProfile extends Component {
     });
 
     return (
-      <View style={{ flex: 1, paddingTop: Platform.OS === "ios" ? 20 : 0 }}>
+      <View
+        style={{
+          flex: 1,
+          paddingTop: Platform.OS === "ios" ? 20 : 0,
+          backgroundColor: Colors.white,
+        }}
+      >
         {/* <HeaderComponent title="Profile" {...pageProps} hasBack/> */}
         <View
           style={{
@@ -181,11 +187,11 @@ class IOSProfile extends Component {
         >
           {activeTab === "Status" ? (
             <View style={{ width: widthPerc(100) }}>
-              <Status />
+              <Status {...this.props} />
             </View>
           ) : (
             <View style={{ width: widthPerc(100) }}>
-              <Account />
+              <Account {...this.props} />
             </View>
           )}
         </Animated.View>
