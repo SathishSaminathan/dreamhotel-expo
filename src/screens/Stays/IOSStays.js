@@ -183,7 +183,9 @@ class IOSStays extends React.Component {
             </View>
           </View>
         </View>
-        {this.renderScene(activeTab)}
+        <View style={{ backgroundColor: Colors.staysBackground }}>
+          {this.renderScene(activeTab)}
+        </View>
       </View>
     );
   }
