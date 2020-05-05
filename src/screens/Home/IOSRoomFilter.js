@@ -16,6 +16,7 @@ import IconComponent from "../../components/Shared/IconComponent";
 import { IconType, FontType } from "../../constants/AppConstants";
 import moment from "moment";
 import { without } from "lodash";
+import Ripple from "react-native-material-ripple";
 
 const initialLayout = { width: Dimensions.get("window").width };
 
@@ -86,7 +87,7 @@ class IOSRoomFilter extends React.Component {
                 overflow: "hidden",
               }}
             >
-              <TouchableNativeFeedback>
+              <Ripple>
                 <View style={{ backgroundColor: Colors.white, padding: 5 }}>
                   <IconComponent
                     type={IconType.AntDesign}
@@ -94,7 +95,7 @@ class IOSRoomFilter extends React.Component {
                     style={{}}
                   ></IconComponent>
                 </View>
-              </TouchableNativeFeedback>
+              </Ripple>
             </View>
             <TextComponent>{data.value}</TextComponent>
             <View
@@ -105,7 +106,7 @@ class IOSRoomFilter extends React.Component {
                 overflow: "hidden",
               }}
             >
-              <TouchableNativeFeedback>
+              <Ripple>
                 <View style={{ backgroundColor: Colors.white, padding: 5 }}>
                   <IconComponent
                     type={IconType.AntDesign}
@@ -113,7 +114,7 @@ class IOSRoomFilter extends React.Component {
                     style={{}}
                   ></IconComponent>
                 </View>
-              </TouchableNativeFeedback>
+              </Ripple>
             </View>
           </View>
         </View>
