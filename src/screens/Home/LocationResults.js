@@ -153,8 +153,10 @@ const LocationResults = (props) => {
             borderBottomColor: Colors.accordionBorderColor,
             flexDirection: "row",
             alignItems: "center",
-            paddingHorizontal: true ? 0 : 10,
+            paddingHorizontal: 10,
             elevation: 5,
+            justifyContent:
+              Platform.OS === "ios" ? "space-between" : "flex-start",
           }}
         >
           <Ripple
@@ -165,7 +167,7 @@ const LocationResults = (props) => {
               style={{
                 width: 40,
                 height: "100%",
-                alignItems: "center",
+                // alignItems: "center",
                 justifyContent: "center",
                 borderRadius: 50,
               }}
@@ -180,6 +182,19 @@ const LocationResults = (props) => {
           <TextComponent style={{ fontSize: 18 }} type={FontType.BOLD}>
             Room & Rates Filters
           </TextComponent>
+          {Platform.OS === "ios" && (
+            <TouchableOpacity
+              activeOpacity={0.8}
+              onPress={() => setModalVisible(false)}
+            >
+              <TextComponent
+                type={FontType.BOLD}
+                style={{ fontSize: 17, color: Colors.cancelblue }}
+              >
+                Done
+              </TextComponent>
+            </TouchableOpacity>
+          )}
         </View>
         <RoomPreferences />
       </Modal>

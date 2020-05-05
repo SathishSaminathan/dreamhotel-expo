@@ -134,7 +134,7 @@ class IOSRoomFilter extends React.Component {
         style={{
           flex: 1,
           backgroundColor: Colors.staysBackground,
-          paddingTop: Platform.OS === "ios" ? 20 : 0,
+          // paddingTop: Platform.OS === "ios" ? 20 : 0,
         }}
       >
         <View
