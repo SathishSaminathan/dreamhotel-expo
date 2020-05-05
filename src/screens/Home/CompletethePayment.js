@@ -268,7 +268,7 @@ export default class CompletethePayment extends Component {
               borderRadius={50}
               style={{
                 backgroundColor: Colors.themeBlack,
-                fontSize: 17,
+                // fontSize: 17,
                 color: Colors.white,
               }}
             >
