@@ -74,112 +74,118 @@ class IOSStays extends React.Component {
       <View
         style={{
           flex: 1,
-          paddingTop: Platform.OS === "ios" ? 20 : 0,
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.staysBackground,
         }}
       >
         <View
           style={{
-            height: 60,
-            // elevation: 10,
+            paddingTop: Platform.OS === "ios" ? 20 : 0,
             backgroundColor: Colors.white,
-            alignItems: "center",
-            justifyContent: "center",
-            flexDirection: "row",
-            justifyContent: "center",
-            paddingHorizontal: 10,
           }}
         >
           <View
             style={{
-              flex: 9,
-              height: 40,
-              backgroundColor: "rgba(118,118,128,0.12)",
-              //   width: widthPerc(90),
-              borderRadius: 8,
-              //   alignItems:'center'
+              height: 60,
+              // elevation: 10,
+              backgroundColor: Colors.white,
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "row",
+              justifyContent: "center",
+              paddingHorizontal: 10,
             }}
           >
             <View
-              style={{ flex: 1, flexDirection: "row", alignSelf: "center" }}
-              onLayout={(event) => this.measureView(event)}
+              style={{
+                flex: 9,
+                height: 40,
+                backgroundColor: "rgba(118,118,128,0.12)",
+                //   width: widthPerc(90),
+                borderRadius: 8,
+                //   alignItems:'center'
+              }}
             >
-              <TouchableOpacity
-                onLayout={(event) => this.measureButton(event)}
-                activeOpacity={1}
-                onPress={() => {
-                  // this.scrollViewRef.scrollTo({ x: 0 });
-                  this.handleTab(0);
-                  this.setState({ activeTab: "Upcoming" });
-                }}
-                style={styles.buttonStyle}
+              <View
+                style={{ flex: 1, flexDirection: "row", alignSelf: "center" }}
+                onLayout={(event) => this.measureView(event)}
               >
-                <TextComponent
-                  type={FontType.BOLD}
-                  style={{
-                    fontSize: 16,
-                    color:
-                      activeTab === "Upcoming"
-                        ? Colors.white
-                        : Colors.themeBlack,
+                <TouchableOpacity
+                  onLayout={(event) => this.measureButton(event)}
+                  activeOpacity={1}
+                  onPress={() => {
+                    // this.scrollViewRef.scrollTo({ x: 0 });
+                    this.handleTab(0);
+                    this.setState({ activeTab: "Upcoming" });
                   }}
+                  style={styles.buttonStyle}
                 >
-                  Upcoming
-                </TextComponent>
-              </TouchableOpacity>
-              <TouchableOpacity
-                activeOpacity={1}
-                onPress={() => {
-                  // this.scrollViewRef.scrollTo({ x: 0 });
-                  this.handleTab(width / 2);
-                  this.setState({ activeTab: "Past" });
-                }}
-                style={styles.buttonStyle}
-              >
-                <TextComponent
-                  type={FontType.BOLD}
-                  style={{
-                    fontSize: 16,
-                    color:
-                      activeTab === "Past" ? Colors.white : Colors.themeBlack,
+                  <TextComponent
+                    type={FontType.BOLD}
+                    style={{
+                      fontSize: 16,
+                      color:
+                        activeTab === "Upcoming"
+                          ? Colors.white
+                          : Colors.themeBlack,
+                    }}
+                  >
+                    Upcoming
+                  </TextComponent>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  activeOpacity={1}
+                  onPress={() => {
+                    // this.scrollViewRef.scrollTo({ x: 0 });
+                    this.handleTab(width / 2);
+                    this.setState({ activeTab: "Past" });
                   }}
+                  style={styles.buttonStyle}
                 >
-                  Past
-                </TextComponent>
-              </TouchableOpacity>
-              <TouchableOpacity
-                activeOpacity={1}
-                onPress={() => {
-                  // this.scrollViewRef.scrollTo({ x: 360 });
-                  this.handleTab(width);
-                  this.setState({ activeTab: "Cancelled" });
-                }}
-                style={styles.buttonStyle}
-              >
-                <TextComponent
-                  type={FontType.BOLD}
-                  style={{
-                    fontSize: 16,
-                    color:
-                      activeTab === "Cancelled"
-                        ? Colors.white
-                        : Colors.themeBlack,
+                  <TextComponent
+                    type={FontType.BOLD}
+                    style={{
+                      fontSize: 16,
+                      color:
+                        activeTab === "Past" ? Colors.white : Colors.themeBlack,
+                    }}
+                  >
+                    Past
+                  </TextComponent>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  activeOpacity={1}
+                  onPress={() => {
+                    // this.scrollViewRef.scrollTo({ x: 360 });
+                    this.handleTab(width);
+                    this.setState({ activeTab: "Cancelled" });
                   }}
+                  style={styles.buttonStyle}
                 >
-                  Cancelled
-                </TextComponent>
-              </TouchableOpacity>
-              <Animated.View
-                style={{
-                  width: butWidth,
-                  backgroundColor: Colors.themeBlack,
-                  height: "100%",
-                  position: "absolute",
-                  borderRadius: 8,
-                  left: trans,
-                  zIndex: -1,
-                }}
-              ></Animated.View>
+                  <TextComponent
+                    type={FontType.BOLD}
+                    style={{
+                      fontSize: 16,
+                      color:
+                        activeTab === "Cancelled"
+                          ? Colors.white
+                          : Colors.themeBlack,
+                    }}
+                  >
+                    Cancelled
+                  </TextComponent>
+                </TouchableOpacity>
+                <Animated.View
+                  style={{
+                    width: butWidth,
+                    backgroundColor: Colors.themeBlack,
+                    height: "100%",
+                    position: "absolute",
+                    borderRadius: 8,
+                    left: trans,
+                    zIndex: -1,
+                  }}
+                ></Animated.View>
+              </View>
             </View>
           </View>
         </View>
