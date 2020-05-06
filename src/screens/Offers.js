@@ -98,7 +98,6 @@ export default class Offers extends Component {
         style={{
           flex: 1,
           backgroundColor: Colors.white,
-          paddingTop: Platform.OS === "ios" ? 20 : 0,
         }}
       >
         <HeaderComponent hasBack title="Offers" {...this.props} />
