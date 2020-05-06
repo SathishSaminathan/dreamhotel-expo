@@ -33,12 +33,12 @@ export default class CompletethePayment extends Component {
       (this.props.route.params && this.props.route.params.date) || "14/4";
     return (
       <View style={{ flex: 1 }}>
-        <StatusBar
+        {/* <StatusBar
           backgroundColor={Colors.themeBlack}
           barStyle={"light-content"}
           hidden={false}
           translucent={false}
-        />
+        /> */}
         <HeaderComponent hasBack {...this.props} isDark twoOnly>
           <TextComponent style={{ fontSize: 25, color: Colors.white }}>
             Complete the Payment
