@@ -104,11 +104,11 @@ const HeaderComponent = ({
             </Ripple>
           )}
         </View>
-        <StatusBar
+        {/* <StatusBar
           backgroundColor={Colors.themeBlack}
           barStyle="light-content"
           animated
-        />
+        /> */}
         <View style={{ flex: !twoOnly ? 7 : 9, alignItems: "center" }}>
           {children}
         </View>
