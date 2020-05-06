@@ -104,6 +104,7 @@ class IOSProfile extends Component {
               onLayout={(event) => this.measureView(event)}
             >
               <TouchableOpacity
+                onLayout={(event) => this.measureButton(event)}
                 activeOpacity={1}
                 onPress={() => {
                   // this.scrollViewRef.scrollTo({ x: 0 });
@@ -208,7 +209,6 @@ class IOSProfile extends Component {
   }
 }
 export default IOSProfile;
-
 
 const styles = StyleSheet.create({
   scene: {
