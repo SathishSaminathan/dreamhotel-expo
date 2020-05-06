@@ -36,6 +36,12 @@ class IOSProfile extends Component {
     });
   }
 
+  measureButton(event) {
+    this.setState({
+      butWidth: event.nativeEvent.layout.width,
+    });
+  }
+
   handleTab = (value) => {
     Animated.spring(this.state.position, {
       toValue: value,
@@ -45,7 +51,7 @@ class IOSProfile extends Component {
   };
 
   render() {
-    const { position, width, activeTab } = this.state;
+    const { position, width, activeTab, butWidth } = this.state;
     const trans = position.interpolate({
       inputRange: [0, width],
       outputRange: [0, width / 2],
@@ -104,13 +110,14 @@ class IOSProfile extends Component {
                   this.handleTab(0);
                   this.setState({ activeTab: "Status" });
                 }}
-                style={{
-                  width: "50%",
-                  // backgroundColor: Colors.themeBlack,
-                  height: "100%",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
+                // style={{
+                //   width: "50%",
+                //   // backgroundColor: Colors.themeBlack,
+                //   height: "100%",
+                //   alignItems: "center",
+                //   justifyContent: "center",
+                // }}
+                style={styles.buttonStyle}
               >
                 <TextComponent
                   type={FontType.BOLD}
@@ -130,13 +137,14 @@ class IOSProfile extends Component {
                   this.handleTab(width);
                   this.setState({ activeTab: "Account" });
                 }}
-                style={{
-                  width: "50%",
-                  // backgroundColor: Colors.themeBlack,
-                  height: "100%",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
+                // style={{
+                //   width: "50%",
+                //   // backgroundColor: Colors.themeBlack,
+                //   height: "100%",
+                //   alignItems: "center",
+                //   justifyContent: "center",
+                // }}
+                style={styles.buttonStyle}
               >
                 <TextComponent
                   type={FontType.BOLD}
@@ -153,7 +161,7 @@ class IOSProfile extends Component {
               </TouchableOpacity>
               <Animated.View
                 style={{
-                  width: "50%",
+                  width: butWidth,
                   backgroundColor: Colors.themeBlack,
                   height: "100%",
                   position: "absolute",
@@ -200,3 +208,18 @@ class IOSProfile extends Component {
   }
 }
 export default IOSProfile;
+
+
+const styles = StyleSheet.create({
+  scene: {
+    flex: 1,
+  },
+  buttonStyle: {
+    // width: "30%",
+    flex: 1,
+    // backgroundColor: Colors.themeBlack,
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
