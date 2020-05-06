@@ -81,6 +81,7 @@ class IOSProfile extends Component {
             justifyContent: "center",
             flexDirection: "row",
             justifyContent: "center",
+            paddingRight:10
           }}
         >
           <TouchableOpacity
