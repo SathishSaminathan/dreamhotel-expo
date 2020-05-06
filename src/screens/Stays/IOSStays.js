@@ -81,6 +81,12 @@ class IOSStays extends React.Component {
           style={{
             paddingTop: Platform.OS === "ios" ? 20 : 0,
             backgroundColor: Colors.white,
+            shadowOpacity: 0.3,
+            shadowRadius: 3,
+            shadowOffset: {
+              height: 0,
+              width: 0,
+            },
           }}
         >
           <View
