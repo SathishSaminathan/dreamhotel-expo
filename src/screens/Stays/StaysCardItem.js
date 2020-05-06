@@ -153,6 +153,12 @@ const StaysCardItem = ({ data, type, navigation, route }) => {
         width: "100%",
         borderRadius: 5,
         elevation: 5,
+        shadowOpacity: 0.3,
+        shadowRadius: 3,
+        shadowOffset: {
+          height: 0,
+          width: 0,
+        },
         overflow: "hidden",
         marginBottom: 10,
       }}
